@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hámor Invest Kft. - Megbízható építőipari partner 2009 óta.">
+    <title>Hámor Invest Kft. - Építőipari Kivitelezés</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        
+        /* --- SZÍNVILÁG --- */
+        :root {
+            --accent-yellow: #fbbf24;    /* Yellow-400/500 */
+            --dark-charcoal: #111827; /* Gray-900 */
+            --medium-gray: #374151;   /* Gray-700 */
+            --light-bg: #f3f4f6;      /* Gray-100 */
+        }
+        /* MOBIL MENÜ */
+.mobile-link {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: color 0.3s;
+}
+.mobile-link:hover {
+    color: var(--accent-yellow);
+}
+
+        body { color: #1f2937; background-color: white; font-family: 'Inter', sans-serif; }
+        .header-bg { background-color: rgba(17, 24, 39, 0.98); }
+        
+        /* Gördítősáv */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--accent-yellow); border-radius: 4px; }
+
+        /* Írógép animáció */
+        .typewriter h1 {
+            overflow: hidden; border-right: .15em solid var(--accent-yellow); white-space: nowrap; margin: 0 auto;
+            letter-spacing: .05em; padding-bottom: 10px; line-height: 1.3;
+            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent-yellow); } }
+
+        /* HÁTTEREK */
+        .bg-numbers {
+            background-color: var(--light-bg);
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='30' font-family='monospace' font-size='10' fill='%23d1d5db' opacity='0.4'%3E0123456789%3C/text%3E%3Ctext x='40' y='70' font-family='monospace' font-size='10' fill='%23d1d5db' opacity='0.4'%3E%2B - * / = %25%3C/text%3E%3C/svg%3E");
+        }
+
+        .bg-blueprint {
+            background-color: #f9fafb;
+            background-image: 
+                linear-gradient(#e5e7eb 1px, transparent 1px),
+                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Alsó díszléc */
+        .bottom-dark-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background-color: rgba(17, 24, 39, 0.45);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ANIMÁCIÓK */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate-in { animation: zoomIn 0.3s ease-out forwards; }
+        .modal-animate-out { animation: zoomOut 0.2s ease-in forwards; }
+        @keyframes zoomOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.96); } }
+
+        /* Carousel fade animáció */
+        .fade-in { animation: fadeIn 0.8s ease-in-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Modal Kép Áttűnés */
+        #modal-img {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+        }
+    </style>
+</head>
+  <body class="relative pb-8">
+
+    <header class="header-bg sticky top-0 z-50 shadow-xl border-b border-yellow-900">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="#kezdolap" class="flex items-center text-xl md:text-2xl font-black text-white tracking-tighter group uppercase italic">
+            <img src="images/logo.png" alt="Logo" class="h-10 w-auto mr-3 group-hover:scale-110 transition duration-500">
+            HÁMOR INVEST Kft.
+        </a>
+        <nav class="hidden md:flex space-x-6 text-xs font-black uppercase tracking-widest">
+          <a href="#kezdolap" class="text-white hover:text-yellow-500 transition">Kezdőlap</a>
+          <a href="#rolunk" class="text-white hover:text-yellow-500 transition">Rólunk</a>
+          <a href="allas.html" class="text-white hover:text-yellow-500 transition">Állás</a>
+          <a href="#szolgaltatasok" class="text-white hover:text-yellow-500 transition">Szolgáltatások</a>
+          <a href="#referenciak" class="text-white hover:text-yellow-500 transition">Referenciák</a>
+          <a href="#arak" class="text-white hover:text-yellow-500 transition">Árak</a>
+          <a href="#kapcsolat" class="text-white hover:text-yellow-500 transition">Kapcsolat</a>
+        </nav>
+        <!-- MOBIL MENÜ GOMB -->
+<button id="mobile-menu-btn" class="md:hidden text-white text-3xl">
+    <i class="fas fa-bars"></i>
+</button>
+
+      </div>
+    </header>
+
+    <section id="kezdolap" class="relative min-h-screen flex items-center justify-center bg-gray-900 bg-cover bg-center bg-fixed" style="background-image: url('images/kezdolap.jpg');">
+      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="container relative z-10 text-center px-4">
+        <div class="typewriter inline-block mb-6">
+            <h1 class="text-2xl md:text-5xl lg:text-6xl font-black text-white uppercase italic">A tervezéstől a kivitelezésig!</h1>
+        </div>
+        <p class="reveal text-lg md:text-xl text-yellow-500 mb-10 max-w-4xl mx-auto font-black uppercase tracking-widest leading-relaxed">
+          Hőszigetelés • Vízszigetelés • Villamosság • Gépszerelés • Kőműves munkák
+        </p>
+        <div class="reveal">
+            <a href="#kapcsolat" class="inline-block px-12 py-5 bg-yellow-600 text-white font-black text-lg rounded shadow-2xl hover:bg-yellow-500 hover:scale-105 transition transform duration-300 uppercase tracking-tighter">
+                Ingyenes ajánlatkérés
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="rolunk" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/2 reveal">
+                    <h2 class="text-5xl font-black text-gray-900 mb-6 uppercase leading-none italic">Rólunk</h2>
+                    <div class="h-2 w-20 bg-yellow-600 mb-8"></div>
+                    
+                    <div class="text-lg text-gray-700 leading-relaxed space-y-6 text-justify">
+                        <p>
+                            Cégünk 2009-ben, egy korábbi vállalkozásra alapozva építőipari tevékenységek végzésére alakult. A cég alapítói tisztán természetes személyek, gyakorlatilag <strong>családi vállalkozásként</strong> működünk.
+                        </p>
+                        <p>
+                            A jelenlegi, átfogó piaci keretek között társaságunk célja egy olyan minőségi szolgáltatás nyújtása, amely elsősorban <strong>magánszemélyek és kisvállalkozók</strong> megrendeléseinek teljes körű kielégítésére szolgál.
+                        </p>
+                        <p>
+                            Természetesen olyan komplex munkák kivitelezését is vállaljuk, amely fővállalkozói felelősséget kíván. Jelenlegi állandó alkalmazottaink mellett ilyen esetekben megbízható alvállalkozókat, vagy megbízási szerződéssel rendelkező munkaerőt alkalmazunk.
+                        </p>
+                        <p>
+                            Építőipari tevékenységeinkhez folyamatosan fejlesztjük a kéziszerszámokból és szerszámgépekből álló technikai háttérünket, mobilitásunkat pedig saját gépjárműparkunk segíti.
+                        </p>
+                        <p class="font-bold text-gray-900 italic pt-4">
+                            Tekintsen bele munkáinkba, vegye fel velünk a kapcsolatot! Reméljük, nemsokára Önt is elégedett megrendelőink között üdvözölhetjük.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 border-l-4 border-yellow-600 pl-4">
+                        <p class="text-gray-500 uppercase text-xs font-black tracking-widest mb-1">Tisztelettel:</p>
+                        <p class="text-2xl font-black text-gray-900 italic">Juhász Róbert</p>
+                        <p class="text-yellow-600 font-bold uppercase text-sm">Tulajdonos</p>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 reveal relative">
+                    <img src="images/ap.jpg" alt="Juhász Róbert - Hámor Invest" class="rounded shadow-2xl w-full h-[600px] object-cover transition duration-700 hover:scale-105">
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-600/10 -z-10 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="szolgaltatasok" class="py-24 bg-blueprint">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black mb-16 reveal uppercase italic border-b-4 border-yellow-600 inline-block pb-1">Szakterületeink</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                
+                <div class="bg-white p-10 rounded shadow-xl border-t-8 border-gray-800 hover:border-yellow-600 transition-all duration-300 text-left">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-home text-4xl text-yellow-600 mr-4"></i>
+                        <h3 class="text-xl font-black uppercase">Építés & Felújítás</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600 font-medium">
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Kőműves és burkoló munkák</li>
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Válaszfalrendszerek építése</li>
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Belső és homlokzatfestések</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded shadow-xl border-t-8 border-gray-800 hover:border-yellow-600 transition-all duration-300 text-left">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-layer-group text-4xl text-yellow-600 mr-4"></i>
+                        <h3 class="text-xl font-black uppercase">Szigetelés</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600 font-medium">
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Hőszigetelés</li>
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Vízszigetelések aljzattól a tetőig</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded shadow-xl border-t-8 border-gray-800 hover:border-yellow-600 transition-all duration-300 text-left">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-tools text-4xl text-yellow-600 mr-4"></i>
+                        <h3 class="text-xl font-black uppercase">Gépészet</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600 font-medium">
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Víz- és fűtésszerelés</li>
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Klímaszerelés</li>
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Gépszerelés, alkatrész gyártás</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded shadow-xl border-t-8 border-gray-800 hover:border-yellow-600 transition-all duration-300 text-left">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-bolt text-4xl text-yellow-600 mr-4"></i>
+                        <h3 class="text-xl font-black uppercase">Villamosság</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600 font-medium">
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Villamossági szerelések</li>
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Teljes hálózatkiépítés</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded shadow-xl border-t-8 border-gray-800 hover:border-yellow-600 transition-all duration-300 text-left">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-tree text-4xl text-yellow-600 mr-4"></i>
+                        <h3 class="text-xl font-black uppercase">Kültér</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600 font-medium">
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Földmunkák</li>
+                        <li><i class="fas fa-check text-yellow-600 mr-2"></i> Parkosítás</li>
+                    </ul>
+                </div>
+
+                 <div class="bg-gray-900 p-10 rounded shadow-xl border-t-8 border-yellow-600 transition-all duration-300 text-left flex flex-col justify-center">
+                    <h3 class="text-2xl font-black uppercase text-white mb-4 italic">Komplex megoldások</h3>
+                    <p class="text-gray-400 mb-6">Fővállalkozói felelősséggel, a tervezéstől a kulcsrakész átadásig.</p>
+                    <a href="#kapcsolat" class="text-yellow-500 font-bold uppercase hover:text-white transition">Keressen minket <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="referenciak" class="py-24 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black mb-4 reveal uppercase italic">Referenciáink</h2>
+            <p class="text-gray-500 font-bold mb-16 reveal uppercase tracking-widest italic">Kiemelt munkáink</p>
+            
+            <div id="project-grid-main" class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+                </div>
+
+            <div class="mt-20 reveal">
+                <button id="open-all-projects" class="px-10 py-4 border-2 border-yellow-600 text-yellow-700 font-black rounded hover:bg-yellow-600 hover:text-white transition uppercase tracking-tighter">
+                    Összes projektünk megtekintése
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="velemenyek" class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 text-center reveal">
+            <h2 class="text-3xl font-black mb-12 uppercase italic"><i class="fab fa-google text-yellow-500 mr-2"></i> Ügyfélvélemények</h2>
+            
+            <div id="testimonial-grid-main" class="grid grid-cols-1 md:grid-cols-3 gap-8 min-h-[300px]">
+                </div>
+            
+            <div class="mt-8 flex justify-center gap-2">
+                 <div class="w-3 h-3 rounded-full bg-yellow-600 animate-pulse"></div>
+                 <div class="w-3 h-3 rounded-full bg-gray-700"></div>
+                 <div class="w-3 h-3 rounded-full bg-gray-700"></div>
+            </div>
+
+            <a href="https://www.google.com" target="_blank" class="mt-12 inline-block text-gray-400 hover:text-white transition uppercase font-black text-xs tracking-widest underline decoration-yellow-700 underline-offset-8">
+                Még több vélemény a Google-ön
+            </a>
+        </div>
+    </section>
+
+    <section id="karrier-kedvcsinalo" class="py-24 bg-white">
+        <div class="container mx-auto px-4 text-center reveal">
+            <h2 class="text-4xl font-black mb-12 uppercase italic border-b-8 border-yellow-600 inline-block pb-2">Karrier nálunk</h2>
+            <div class="max-w-5xl mx-auto bg-gray-100 p-12 rounded-[40px] shadow-2xl relative overflow-hidden border border-gray-200">
+                <div class="grid md:grid-cols-2 gap-10 mb-12 text-left">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-600 text-white w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black uppercase mb-2">Családias légkör</h3>
+                            <p class="text-gray-600 font-medium">Csapatunkban elengedhetetlen a kommunikáció, az egyetértés és a támogató környezet.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-600 text-white w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black uppercase mb-2">Kiszámíthatóság</h3>
+                            <p class="text-gray-600 font-medium">Stabil hátteret és folyamatos munkalehetőséget biztosítunk szakembereinknek.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="allas.html" class="inline-block px-12 py-5 bg-yellow-600 text-gray-900 font-black rounded-2xl hover:bg-yellow-500 transition shadow-xl uppercase tracking-widest">
+                    Itt akarok dolgozni
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="arak" class="py-24 bg-numbers">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black mb-12 reveal uppercase italic">Árképzés</h2>
+            <div class="max-w-4xl mx-auto bg-white p-12 rounded shadow-2xl border border-gray-200 reveal">
+                <i class="fas fa-hand-holding-usd text-6xl text-yellow-600 mb-8"></i>
+                <p class="text-2xl font-black text-gray-800 mb-6">Személyre szabott ajánlatok minden ügyfélnek</p>
+                <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+                    Mivel minden építkezés és felújítás egyedi paraméterekkel rendelkezik, fix listás árak helyett részletes, tételre bontott árajánlatot készítünk a helyszíni felmérést követően. Így Ön pontosan látja, miért fizet.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 mb-12">
+                    <div class="bg-yellow-600/10 px-8 py-4 rounded font-black text-yellow-600 uppercase italic">Fix Határidők</div>
+                    <div class="bg-yellow-600/10 px-8 py-4 rounded font-black text-yellow-600 uppercase italic">Rejtett költségek nélkül</div>
+                    <div class="bg-yellow-600/10 px-8 py-4 rounded font-black text-yellow-600 uppercase italic">Szakértői támogatás</div>
+                </div>
+                <a href="#kapcsolat" class="inline-block px-12 py-5 bg-gray-900 text-white font-black rounded hover:bg-black transition shadow-xl uppercase tracking-tighter">
+                    Ajánlatot kérek most
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="kapcsolat" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-4 reveal">
+            <div class="grid md:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="text-4xl font-black mb-8 uppercase italic leading-none">Kapcsolat <br><span class="text-yellow-600">felvétel</span></h2>
+                    <p class="text-gray-600 mb-10 font-medium">Bármilyen kérdése van, állunk rendelkezésére telefonon, e-mailben</p>
+                    
+                    
+                    <ul class="space-y-8">
+                          <ul class="space-y-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-id-card-alt text-yellow-600 mt-1 w-12 text-3xl"></i>
+                            <div>
+                                <span class="block font-black uppercase text-xs text-gray-400">Cégnév</span>
+                                <span class="text-lg font-bold">Hámor Invest Kft.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-user-tie text-yellow-600 mt-1 w-12 text-3xl"></i>
+                            <div>
+                                <span class="block font-black uppercase text-xs text-gray-400">Tulajdonos</span>
+                                <span class="text-lg font-bold">Juhász Róbert</span>
+                            </div>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-yellow-600 mt-1 w-12 text-3xl"></i>
+                            <div>
+                                <span class="block font-black uppercase text-xs text-gray-400">Címünk</span>
+                                <span class="text-lg font-bold">3517 Miskolc, Vásárhelyi István utca 16.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-yellow-600 mt-1 w-12 text-3xl"></i>
+                            <div>
+                                <span class="block font-black uppercase text-xs text-gray-400">Hívjon minket</span>
+                                <a href="tel:+36202642024" class="text-lg font-bold hover:text-yellow-600 transition">+36 20 264 2024</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-yellow-600 mt-1 w-12 text-3xl"></i>
+                            <div>
+                                <span class="block font-black uppercase text-xs text-gray-400">Írjon nekünk</span>
+                                <a href="mailto:hamorinvest@gmail.com" class="text-lg font-bold hover:text-yellow-600 transition">hamorinvest@gmail.com</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-id-card text-yellow-600 mt-1 w-12 text-3xl"></i>
+                            <div>
+                                <span class="block font-black uppercase text-xs text-gray-400">Adószám</span>
+                                <a href="mailto:hamorinvest@gmail.com" class="text-lg font-bold hover:text-yellow-600 transition">14641349-2-05</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <form id="contact-form" class="bg-white p-10 rounded shadow-2xl border-b-8 border-yellow-600">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-black uppercase text-gray-400 mb-2">Az Ön neve</label>
+                            <input type="text" placeholder="pl: Kovács János" required class="w-full p-4 rounded bg-gray-50 border-none outline-none focus:ring-2 focus:ring-yellow-600 transition font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black uppercase text-gray-400 mb-2">E-mail címe</label>
+                            <input type="email" placeholder="email@pelda.hu" required class="w-full p-4 rounded bg-gray-50 border-none outline-none focus:ring-2 focus:ring-yellow-600 transition font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black uppercase text-gray-400 mb-2">Üzenet / Ajánlatkérés</label>
+                            <textarea placeholder="Miben segíthetünk?" rows="4" required class="w-full p-4 rounded bg-gray-50 border-none outline-none focus:ring-2 focus:ring-yellow-600 transition font-bold"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center gap-6 bg-gray-50 p-4 rounded">
+                            <label class="text-xs font-black uppercase text-gray-500 font-bold">Mennyi 5 x 5?</label>
+                            <input type="number" id="captcha" placeholder="?" required class="w-20 p-2 rounded text-black text-center font-black border-2 border-yellow-600">
+                        </div>
+                        
+                        <button type="submit" class="w-full p-5 bg-yellow-600 text-white font-black rounded hover:bg-yellow-700 transition uppercase tracking-widest shadow-xl">
+                            Ajánlatkérés elküldése
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="flex space-x-6 mt-8 text-3xl pt-4 border-t border-gray-600">
+                <a href="https://www.facebook.com/profile.php?id=100063543788454&sk=photos" target="_blank" class="hover:text-blue-500 transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-pink-500 transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.google.com/maps/place/H%C3%A1mor+Invest+Kft/@48.1082628,20.6383349,17z/data=!3m1!4b1!4m6!3m5!1s0x47409daeae74a00d:0xa2b0388599083a45!8m2!3d48.1082592!4d20.6409098!16s%2Fg%2F11nnzkbc3x?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D" target="_blank" class="hover:text-green-500 transition transform hover:scale-110"><i class="fas fa-map-marked-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-16 text-center text-xs font-black uppercase tracking-[0.3em] border-t-2 border-yellow-900">
+        © 2025 HÁMOR INVEST KFT. | MINDEN JOG FENNTARTVA.
+    </footer>
+    <!-- MOBIL MENÜ -->
+<div id="mobile-menu" class="fixed inset-0 bg-gray-900 z-[9999] hidden flex flex-col items-center justify-center text-center space-y-8">
+    <button id="mobile-close" class="absolute top-6 right-6 text-white text-4xl font-black">×</button>
+
+    <a href="#kezdolap" class="mobile-link">Kezdőlap</a>
+    <a href="#rolunk" class="mobile-link">Rólunk</a>
+    <a href="allas.html" class="mobile-link">Állás</a>
+    <a href="#szolgaltatasok" class="mobile-link">Szolgáltatások</a>
+    <a href="#referenciak" class="mobile-link">Referenciák</a>
+    <a href="#arak" class="mobile-link">Árak</a>
+    <a href="#kapcsolat" class="mobile-link">Kapcsolat</a>
+</div>
+
+
+    <div class="bottom-dark-strip">HÁMOR INVEST KFT • A tervezéstől a kivitelezésig</div>
+
+    <div id="detail-modal" class="fixed inset-0 bg-black/95 backdrop-blur-sm hidden z-[100] flex justify-center items-center p-4">
+        <div class="bg-white rounded w-full max-w-5xl relative max-h-[90vh] overflow-y-auto shadow-2xl modal-content overflow-hidden border-t-8 border-yellow-600">
+            <button id="close-modal" class="absolute top-4 right-4 z-10 text-white bg-black/50 hover:bg-yellow-600 rounded-full w-10 h-10 flex items-center justify-center transition text-2xl font-black">×</button>
+            <div class="grid md:grid-cols-2">
+                <div class="h-64 md:h-[500px] overflow-hidden bg-gray-200 relative group cursor-pointer" onclick="nextGalleryImage()">
+                    <img id="modal-img" src="" class="w-full h-full object-cover absolute inset-0">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <span class="text-white bg-black/50 px-4 py-2 rounded font-black text-xs uppercase">Következő kép <i class="fas fa-chevron-right ml-2"></i></span>
+                    </div>
+                </div>
+                <div class="p-10 md:p-14 text-gray-800">
+                    <h3 id="modal-title" class="text-3xl font-black mb-6 uppercase italic leading-tight text-gray-900 tracking-tighter"></h3>
+                    <div class="flex text-yellow-500 mb-8 text-xl">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="font-black text-gray-400 uppercase text-xs tracking-widest mb-2">Projekt leírása</h4>
+                    <p id="modal-desc" class="text-lg text-gray-600 leading-relaxed mb-10 font-medium"></p>
+                    <div class="flex justify-between items-center pt-8 border-t border-gray-100">
+                        <button id="modal-back" class="text-gray-400 hover:text-gray-900 font-black uppercase text-xs tracking-widest underline underline-offset-4">Bezárás</button>
+                        <a href="#kapcsolat" id="modal-cta" class="px-8 py-3 bg-yellow-600 text-white font-black rounded shadow hover:bg-yellow-500 transition uppercase text-xs">Ajánlatot kérek</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="all-projects-modal" class="fixed inset-0 bg-black/95 backdrop-blur-sm hidden z-[100] flex justify-center items-center p-4">
+        <div class="bg-white rounded w-full max-w-7xl relative h-[90vh] overflow-y-auto shadow-2xl modal-content border-t-8 border-yellow-600 p-10 custom-scrollbar">
+            <div class="flex justify-between items-center mb-10 border-b pb-6">
+                <h2 class="text-4xl font-black uppercase italic text-gray-900">Összes <span class="text-yellow-600">projektünk</span></h2>
+                <button id="close-all-projects" class="text-gray-400 hover:text-yellow-700 transition text-4xl font-black">×</button>
+            </div>
+            
+            <div id="all-projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                </div>
+            
+            <div class="mt-12 text-center">
+                <button id="close-all-projects-btn" class="px-10 py-3 bg-gray-100 font-black uppercase text-xs tracking-widest rounded hover:bg-gray-200 transition">Vissza az oldalra</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="help-button" class="fixed bottom-10 right-10 w-20 h-20 bg-yellow-600 text-white rounded-full shadow-2xl hover:scale-110 transition duration-300 z-[9990] flex items-center justify-center text-3xl font-black">
+        <i class="fas fa-phone-alt"></i>
+    </button>
+    <div id="contact-popup" class="fixed bottom-32 right-10 w-80 bg-white p-8 rounded shadow-2xl hidden z-[9990] border-t-8 border-yellow-600 animate-fadeIn">
+        <h3 class="text-xl font-black text-gray-900 mb-2 uppercase italic leading-none">Segíthetünk?</h3>
+        <p class="text-sm text-gray-500 mb-6 font-bold">Hívjon minket!</p>
+        <a href="tel:+36202642024" class="block bg-gray-900 p-5 text-xl font-black text-white text-center rounded hover:bg-yellow-600 transition duration-300 shadow-xl">
+            +36 20 264 2024
+        </a>
+    </div>
+
+    <script>
+        // --- PROJEKT ADATOK (Több képpel) ---
+        const projects = [
+            {
+                id: 1,
+                title: "Ipari biztosíték tábla készítése",
+                short: "Villamossági szerelés",
+                long: "A projekt során egyedi megoldásokat alkalmaztunk. A speciális orvosi berendezések stabil és szünetmentes áramellátását biztosító elosztószekrényeket terveztünk és kiviteleztünk.",
+                images: ["images/biztositek.jpg", "https://picsum.photos/id/101/800/600", "https://picsum.photos/id/102/800/600"],
+                featured: true
+            },
+            {
+                id: 2,
+                title: "Kórházi helyiségek felújítása",
+                short: "Hőszigetelés & Belső munkák",
+                long: "Teljes körű felújítás és gépészeti kialakítás speciális orvosi berendezések számára kórházakban. A sterilitás és a sugárvédelem maximális figyelembevételével.",
+                images: ["images/korhaz.jpg", "images/ct4.jpg"],
+                featured: true
+            },
+            {
+                id: 3,
+                title: "MRI Berendezés Gépészeti Kivitelezése",
+                short: "A sugárvédelmi előírásoknak megfelelő gépészeti rendszer kialakítása",
+                long: "Világcégekkel együttműködve dolgozunk az önök egészségéért. ",
+                images: ["images/ct.jpg", "images/ct2.jpg", "images/mri.jpg"],
+                featured: true
+            },
+            {
+                id: 4,
+                title: "Fürdőszoba Felújítás Modern Stílusban",
+                short: "Válaszfalak & Burkolás",
+                long: "Egy régi fürdőszoba teljes körű felújítása modern anyagokkal és dizájnnal, új válaszfalak építésével, víz- és villanyszereléssel, valamint minőségi burkolatokkal.",
+                images: ["images/furdo.jpg", "https://picsum.photos/id/25/800/600"],
+                featured: false
+            },
+            {
+                id: 5,
+                title: "Épületek bontása, elszállítása",
+                short: "..",
+                long: "Van egy régi használatlan épülete? Mi elbontjuk és elszállítjuk helyetted!",
+                images: ["images/bontas2.jpg", "images/bontas4.jpg", "images/bontas5.jpg"],
+                featured: false
+            },
+            {
+                id: 6,
+                title: "Gépi földmunkák",
+                short: "Legyen szó tereprendezésről, alapásásról vagy árkok kiásásáról, modern gépparkunkkal gyorsan és hatékonyan végezzük el a feladatot.",
+                long: "Vívezetékek, csatornák, alap, kert rendezés gépi földmunkái.",
+                images: ["images/gep1.jpg", "images/bontas.jpg"],
+                featured: false
+            },
+            {
+                id: 7,
+                title: "Kerítésépítés Családi Házhoz",
+                short: "Kerítés",
+                long: "Lemez, PVC, vagy fa kerítés tervezése és építése az ügyfél kérése alapján.",
+                images: ["images/kerrites.jpg"],
+                featured: false
+            }
+        ];
+
+        const testimonials = [
+            {
+                name: "Kovács Péter",
+                quote: "Korrekt csapat, minden a megbeszéltek szerint zajlott. Különösen értékeltem a folyamatos tájékoztatást a munkálatokról.",
+                stars: 5
+            },
+            {
+                name: "Szabó Erika",
+                quote: "A Hámor Invest Kft. újította fel a családi házunkat. Profi hozzáállás, tiszta munkavégzés, bátran ajánlom!",
+                stars: 5
+            },
+            {
+                name: "Tóth László",
+                quote: "Precíz felmérés, világos ajánlat. A gépészeti munkákat végezték nálunk, azóta is minden tökéletesen működik.",
+                stars: 5
+            },
+            {
+                name: "Telegdi Csanád László" ,
+                quote: `Több munkát is elvégzett már nekünk a cég és mindegyik munka pontosan es ugy lett elvégezve ahogy azt korábban megbeszéltük. Pontos, tisztán dolgozó csapat. Csak ajánlani tudom a Hámor Invest Kft-t.`,
+                stars: 5
+            },
+            {
+                name: "Nagy Zsuzsanna",
+                quote: "Gyors, megbízható és pontos munkavégzés. A határidőket betartották, ami manapság ritka az építőiparban.",
+                stars: 5
+            }
+        ];
+
+        // --- GRID FELTÖLTÉSE ---
+        const mainProjectGrid = document.getElementById('project-grid-main');
+        const mainTestimonialGrid = document.getElementById('testimonial-grid-main');
+        const allGrid = document.getElementById('all-projects-grid');
+
+        // Változók a vélemény carouselhez
+        let currentTestimonialIndex = 0;
+        const testimonialsPerView = 3;
+
+        // Változók a galériához
+        let currentProject = null;
+        let currentImageIndex = 0;
+        let galleryInterval;
+
+        // --- KÁRTYA GENERÁLÁS (KÉP LEKEREKÍTÉSSEL) ---
+        function createCard(project) {
+            const div = document.createElement('div');
+            div.className = "group relative cursor-pointer";
+            
+            // MÓDOSÍTÁS: rounded-2xl a képen a lekerekítéshez
+            div.innerHTML = `
+                <div class="overflow-hidden rounded-2xl shadow-lg h-64 relative border-b-4 border-gray-800 group-hover:border-yellow-600 transition duration-300">
+                    <img src="${project.images[0]}" alt="${project.title}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white border-2 border-yellow-500 px-6 py-2 uppercase font-black tracking-widest hover:bg-yellow-500 hover:text-black transition">Részletek</span>
+                    </div>
+                </div>
+                <div class="mt-4 text-left px-2">
+                    <h3 class="text-xl font-black text-gray-900 uppercase italic">${project.title}</h3>
+                    <p class="text-sm text-yellow-700 font-bold uppercase tracking-wide">${project.short}</p>
+                </div>
+            `;
+            return div;
+        }
+
+        function renderMainGrids() {
+            // Főoldali referenciák (3 db)
+            if(mainProjectGrid) {
+                mainProjectGrid.innerHTML = '';
+                projects.filter(p => p.featured).slice(0, 3).forEach((p) => {
+                    const card = createCard(p);
+                    card.onclick = () => openProjectModal(projects.indexOf(p));
+                    mainProjectGrid.appendChild(card);
+                });
+            }
+
+            // Kezdeti vélemény renderelés
+            updateTestimonials();
+            
+            // Vélemények automatikus léptetése 4 másodpercenként
+            setInterval(rotateTestimonials, 4000);
+        }
+
+        function rotateTestimonials() {
+            currentTestimonialIndex++;
+            if (currentTestimonialIndex > testimonials.length - 1) {
+                currentTestimonialIndex = 0;
+            }
+            updateTestimonials();
+        }
+
+        function updateTestimonials() {
+            if(!mainTestimonialGrid) return;
+            mainTestimonialGrid.innerHTML = '';
+            
+            // Körkörös logika
+            let displayList = [];
+            for (let i = 0; i < 3; i++) {
+                let idx = (currentTestimonialIndex + i) % testimonials.length;
+                displayList.push(testimonials[idx]);
+            }
+
+            displayList.forEach(t => {
+                const div = document.createElement('div');
+                div.className = "bg-gray-800 p-8 rounded-xl relative fade-in border border-gray-700";
+                div.innerHTML = `
+                   <div class="text-yellow-600 text-4xl mb-4 opacity-50"><i class="fas fa-quote-left"></i></div>
+                   <p class="text-gray-300 italic mb-6 leading-relaxed">"${t.quote}"</p>
+                   <div class="flex items-center gap-4 border-t border-gray-700 pt-4">
+                       <div class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center font-bold text-gray-900">
+                            ${t.name.charAt(0)}
+                       </div>
+                       <div>
+                           <p class="font-black uppercase text-sm text-white">${t.name}</p>
+                           <div class="text-yellow-500 text-xs">
+                                ${'<i class="fas fa-star"></i>'.repeat(t.stars)}
+                           </div>
+                       </div>
+                   </div>
+                `;
+                mainTestimonialGrid.appendChild(div);
+            });
+        }
+
+        // --- MODAL KEZELÉS ---
+        const modal = document.getElementById('detail-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalImg = document.getElementById('modal-img');
+        const closeBtn = document.getElementById('close-modal');
+        const backBtn = document.getElementById('modal-back');
+
+        function openProjectModal(index) {
+            currentProject = projects[index]; 
+            if(!currentProject) currentProject = projects.find(p => p.id === index);
+            
+            modalTitle.textContent = currentProject.title;
+            modalDesc.textContent = currentProject.long;
+            
+            currentImageIndex = 0;
+            updateModalImage();
+            
+            modal.classList.remove('hidden');
+            modal.querySelector('.modal-content').classList.add('modal-animate-in');
+            
+             if(galleryInterval) clearInterval(galleryInterval);
+             galleryInterval = setInterval(nextGalleryImage, 3000); 
+        }
+
+        function updateModalImage() {
+            modalImg.style.opacity = '0';
+            setTimeout(() => {
+                modalImg.src = currentProject.images[currentImageIndex];
+                modalImg.style.opacity = '1';
+            }, 500);
+        }
+
+        function nextGalleryImage() {
+            if(!currentProject) return;
+            currentImageIndex = (currentImageIndex + 1) % currentProject.images.length;
+            updateModalImage();
+        }
+
+        function closeModalFunc() {
+            const content = modal.querySelector('.modal-content');
+            content.classList.remove('modal-animate-in');
+            content.classList.add('modal-animate-out');
+            if(galleryInterval) clearInterval(galleryInterval);
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                content.classList.remove('modal-animate-out');
+            }, 200);
+        }
+
+        closeBtn.addEventListener('click', closeModalFunc);
+        backBtn.addEventListener('click', closeModalFunc);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModalFunc();
+        });
+
+        // --- ÖSSZES PROJEKT MODAL ---
+        const allProjectsModal = document.getElementById('all-projects-modal');
+        const openAllBtn = document.getElementById('open-all-projects');
+        const closeAllBtn = document.getElementById('close-all-projects');
+        const closeAllBtnBottom = document.getElementById('close-all-projects-btn');
+
+        openAllBtn.addEventListener('click', () => {
+            allGrid.innerHTML = '';
+            projects.forEach(p => {
+                const card = createCard(p);
+                card.onclick = () => {
+                    allProjectsModal.classList.add('hidden'); 
+                    openProjectModal(projects.indexOf(p)); 
+                };
+                allGrid.appendChild(card);
+            });
+            allProjectsModal.classList.remove('hidden');
+            allProjectsModal.querySelector('.modal-content').classList.add('modal-animate-in');
+        });
+
+        const closeAllFunc = () => {
+             allProjectsModal.classList.add('hidden');
+        };
+
+        closeAllBtn.addEventListener('click', closeAllFunc);
+        closeAllBtnBottom.addEventListener('click', closeAllFunc);
+
+        // --- KAPCSOLAT FORM ---
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const captcha = document.getElementById('captcha').value;
+            if(captcha != 25) {
+                alert('Hibás eredmény! Kérjük számolja ki újra az 5x5-öt.');
+                return;
+            }
+            alert('Köszönjük megkeresését! Kollégánk hamarosan felveszi Önnel a kapcsolatot.');
+            this.reset();
+        });
+
+        // --- HELP GOMB ---
+        const helpBtn = document.getElementById('help-button');
+        const contactPopup = document.getElementById('contact-popup');
+        
+        helpBtn.addEventListener('click', () => {
+            contactPopup.classList.toggle('hidden');
+        });
+
+        // --- GÖRGETÉS ANIMÁCIÓK ---
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        
+        // Indítás
+        renderMainGrids();
+        reveal();
+    </script>
+  </body>
+</html>
